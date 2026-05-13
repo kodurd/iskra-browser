@@ -1,14 +1,13 @@
-name: brave
+name: iskra
 version: 1.92.55
 grade: stable
 architectures:
   - build-on: amd64
   - build-on: arm64
-summary: Browse faster and safer with Brave.
+summary: Быстро и безопасно с Искра браузером.
 description: |
- The new Brave browser automatically blocks ads and trackers, making it
- faster and safer than your current browser. Start supporting publishers
- today with our new Brave Payments system.
+ Браузер Искра автоматически блокирует рекламу и трекеры, делая
+ его быстрее и безопаснее. Приватность по умолчанию.
 confinement: strict
 compression: lzo
 base: core22
