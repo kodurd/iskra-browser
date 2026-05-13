@@ -292,28 +292,28 @@ If you update this file, be sure also to update google_chrome_strings.grd. -->
           </message>
         </then>
         <else>
-          <message name="IDS_PRODUCT_NAME" desc="The Brave application name" translateable="false">
-            Brave
+          <message name="IDS_PRODUCT_NAME" desc="The Iskra application name" translateable="false">
+            Искра
           </message>
-          <message name="IDS_SHORT_PRODUCT_NAME" desc="The Brave application short name." translateable="false">
-            Brave
+          <message name="IDS_SHORT_PRODUCT_NAME" desc="The Iskra application short name." translateable="false">
+            Искра
           </message>
         </else>
       </if>
       <if expr="is_win">
-        <message name="IDS_SXS_SHORTCUT_NAME">Brave Nightly</message>
-        <message name="IDS_SHORTCUT_NAME_BETA">Brave Beta</message>
-        <message name="IDS_SHORTCUT_NAME_DEV">Brave Dev</message>
+        <message name="IDS_SXS_SHORTCUT_NAME">Искра Nightly</message>
+        <message name="IDS_SHORTCUT_NAME_BETA">Искра Бета</message>
+        <message name="IDS_SHORTCUT_NAME_DEV">Искра Dev</message>
         <message name="IDS_PRODUCT_DESCRIPTION" desc="Browser description">
-          Brave is a web browser that runs webpages and applications with lightning speed. It's fast, stable, and easy to use. Browse the web more safely with malware and phishing protection built into Brave.
+          Искра — это веб-браузер, который открывает страницы и приложения с молниеносной скоростью. Быстрый, стабильный и удобный. Безопасно просматривайте интернет с защитой от вредоносных программ и фишинга.
         </message>
-        <message name="IDS_WELCOME_TO_CHROME" desc="Welcoming text announced via screen readers the first time Brave is launched at the conclusion of installation.">
-          Welcome to Brave; new browser window opened
+        <message name="IDS_WELCOME_TO_CHROME" desc="Welcoming text announced via screen readers the first time Iskra is launched at the conclusion of installation.">
+          Добро пожаловать в Искра; открыто новое окно браузера
         </message>
       </if>
       <if expr="is_macosx or is_linux">
         <message name="IDS_FIRST_RUN_DIALOG_WINDOW_TITLE" desc="Window title of First Run dialog on Mac and Linux, displayed in title bar">
-          Welcome to Brave
+          Добро пожаловать в Искра
         </message>
       </if>
       <if expr="is_linux">
@@ -716,7 +716,7 @@ Brave is unable to recover your settings.
           You do not have appropriate rights for system-level install. Try running the installer again as Administrator.
         </message>
         <message name="IDS_INSTALL_EXISTING_VERSION_LAUNCHED" desc="A message shown to users who try to install Brave in their user profile directory when their computer already has Brave installed for all users. In this case, the installer silently launches the existing version of Brave for all users rather than installing a second version of Brave.">
-          Brave is already installed for all users on your computer.
+          Искра уже установлена для всех пользователей на вашем компьютере.
         </message>
         <message name="IDS_ELEVATION_SERVICE_DESCRIPTION" desc="The description of the Windows elevation service. Displayed in the Windows Services management console.">
           Provides elevated privileges for <ph name="BROWSER_NAME">$1<ex>Brave</ex></ph>.
@@ -1652,9 +1652,9 @@ Brave is unable to recover your settings.
         </message>
         <message name="IDS_UPDATE_RECOMMENDED" desc="The main text of the Update Recommended dialog with a count of open Private windows.">
           {COUNT, plural,
-          =0 {A new update for Brave is available and will be applied as soon as you relaunch.}
-          =1 {A new update for Brave is available and will be applied as soon as you relaunch. Your Private window won't reopen.}
-          other {A new update for Brave is available and will be applied as soon as you relaunch. Your # Private windows won't reopen.}}
+          =0 {A new update for Искра is available and will be applied as soon as you relaunch.}
+          =1 {A new update for Искра is available and will be applied as soon as you relaunch. Your Private window won't reopen.}
+          other {A new update for Искра is available and will be applied as soon as you relaunch. Your # Private windows won't reopen.}}
         </message>
         <message name="IDS_RELAUNCH_AND_UPDATE" desc="The button in the Update Recommended dialog which updates and relaunches Brave.">
           Relaunch
@@ -2364,10 +2364,10 @@ Brave is unable to recover your settings.
         </message>
         <!-- Profile Picker -->
         <message name="IDS_PROFILE_PICKER_MAIN_VIEW_TITLE" desc="Profile picker main view title">
-          Welcome to Brave profiles
+          Добро пожаловать в профили Искра
         </message>
-        <message name="IDS_PROFILE_PICKER_MAIN_VIEW_TITLE_V2" desc="Title of a screen that lets the user choose which profile to use when browsing the web. *If the EN source doesn't translate well in your language, an alternative string 'Which Brave profile would you like to use?' may be used instead">
-          Who's using Brave?
+        <message name="IDS_PROFILE_PICKER_MAIN_VIEW_TITLE_V2" desc="Title of a screen that lets the user choose which profile to use when browsing the web. *If the EN source doesn't translate well in your language, an alternative string 'Which Iskra profile would you like to use?' may be used instead">
+          Кто использует Искра?
         </message>
         <message name="IDS_PROFILE_PICKER_MAIN_VIEW_TITLE_KEEP_EVERYTHING_IN_CHROME" desc="Profile picker main view title.">
           Keep everything in Brave

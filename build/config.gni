@@ -18,7 +18,7 @@ declare_args() {
   sparkle_eddsa_private_key = ""
   sparkle_eddsa_public_key = ""
 
-  brave_product_name = "brave"
+  brave_product_name = "iskra"
   brave_exe = ""
   brave_version_major = ""
   brave_version_minor = ""
@@ -75,12 +75,12 @@ brave_dist_dir = "$root_out_dir/dist"
 # Use different installer/product names for Brave Origin
 if (is_brave_origin_branded) {
   _product_brand = "Origin"
-  brave_dist_name = "brave-origin"
-  brave_linux_package_name = "brave-origin"
+  brave_dist_name = "iskra-origin"
+  brave_linux_package_name = "iskra-origin"
 } else {
   _product_brand = "Browser"
-  brave_dist_name = "brave"
-  brave_linux_package_name = "brave-browser"
+  brave_dist_name = "iskra"
+  brave_linux_package_name = "iskra-browser"
 }
 
 if (is_win) {
@@ -136,20 +136,20 @@ if (is_win) {
     _arch = "32"
   }
 
-  brave_installer_exe = "brave_installer.exe"
-  brave_stub_installer_exe = "Brave$_product_brand$_channel" +
+  brave_installer_exe = "iskra_installer.exe"
+  brave_stub_installer_exe = "Iskra$_product_brand$_channel" +
                              "Setup$_arch$brave_underline_full_version.exe"
   brave_untagged_stub_installer_exe =
-      "Brave${_product_brand}Untagged$_channel" +
+      "Iskra${_product_brand}Untagged$_channel" +
       "Setup$_arch$brave_underline_full_version.exe"
   brave_standalone_installer_exe =
-      "Brave${_product_brand}Standalone$_channel" +
+      "Iskra${_product_brand}Standalone$_channel" +
       "Setup$_arch$brave_underline_full_version.exe"
   brave_silent_installer_exe =
-      "Brave${_product_brand}StandaloneSilent$_channel" +
+      "Iskra${_product_brand}StandaloneSilent$_channel" +
       "Setup$_arch$brave_underline_full_version.exe"
   brave_untagged_installer_exe =
-      "Brave${_product_brand}StandaloneUntagged$_channel" +
+      "Iskra${_product_brand}StandaloneUntagged$_channel" +
       "Setup$_arch$brave_underline_full_version.exe"
 } else if (is_mac) {
   brave_exe = "$chrome_product_full_name.app"
