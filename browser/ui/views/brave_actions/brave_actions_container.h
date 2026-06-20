@@ -18,6 +18,7 @@
 class BraveActionViewController;
 class BraveActionsContainerTest;
 class BraveShieldsActionView;
+class CatActionButton;
 
 #if BUILDFLAG(ENABLE_BRAVE_REWARDS)
 class BraveRewardsActionView;
@@ -70,6 +71,7 @@ class BraveActionsContainer : public views::View {
   void OnBraveRewardsPreferencesChanged();
 #endif
   void AddActionViewForShields();
+  void AddActionViewForCat();
 
   void UpdateVisibility();
   gfx::Size GetActionSize() const;
@@ -82,6 +84,7 @@ class BraveActionsContainer : public views::View {
   raw_ptr<BrowserWindowInterface> browser_window_interface_ = nullptr;
 
   raw_ptr<BraveShieldsActionView> shields_action_btn_ = nullptr;
+  raw_ptr<CatActionButton> cat_action_btn_ = nullptr;
 #if BUILDFLAG(ENABLE_BRAVE_REWARDS)
   raw_ptr<BraveRewardsActionView> rewards_action_btn_ = nullptr;
 

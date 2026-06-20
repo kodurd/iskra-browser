@@ -263,6 +263,12 @@ This file contains all "about" strings.  It is set to NOT be translated, in tran
     <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_BRAVE_PIP" desc="Content description for the button that triggers picture-in-picture mode for YouTube videos.">
       Enter picture-in-picture mode
     </message>
+    <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_ISKRA_CAT" desc="Content description for the toolbar button that plays a cat animation on the page.">
+      Show cat
+    </message>
+    <message name="IDS_ISKRA_CAT_EMOJI" desc="Emoji label for the cat toolbar button." translateable="false">
+      &#x1F431;
+    </message>
       <message name="IDS_STATS_NOTIFICATION_PRIVACY_UPDATES_DESCRIPTION"  desc="Text for Notification on description">
         Get weekly privacy updates on tracker &amp; ad blocking.
       </message>

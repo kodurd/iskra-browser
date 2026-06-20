@@ -117,6 +117,7 @@ import org.chromium.chrome.browser.youtube_script_injector.BraveYouTubeScriptInj
 import org.chromium.components.embedder_support.util.UrlUtilities;
 import org.chromium.components.feature_engagement.Tracker;
 import org.chromium.content_public.browser.NavigationHandle;
+import org.chromium.content_public.browser.WebContents;
 import org.chromium.mojo.bindings.ConnectionErrorHandler;
 import org.chromium.mojo.system.MojoException;
 import org.chromium.playlist.mojom.PlaylistItem;
@@ -169,6 +170,7 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
     private ImageButton mBraveShieldsButton;
     private ImageButton mBraveRewardsButton;
     private ImageButton mYouTubePipButton;
+    private TextView mIskraCatButton;
     private HomeButton mHomeButton;
     private FrameLayout mWalletLayout;
     private FrameLayout mShieldsLayout;
@@ -281,6 +283,7 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
         mBraveShieldsButton = findViewById(R.id.brave_shields_button);
         mBraveRewardsButton = findViewById(R.id.brave_rewards_button);
         mYouTubePipButton = findViewById(R.id.brave_youtube_pip_button);
+        mIskraCatButton = findViewById(R.id.iskra_cat_button);
         mHomeButton = findViewById(R.id.home_button);
         mBraveWalletBadge = findViewById(R.id.wallet_notfication_badge);
         if (mWalletLayout != null) {
@@ -321,6 +324,12 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
             mYouTubePipButton.setOnClickListener(this);
             mYouTubePipButton.setOnLongClickListener(this);
             BraveTouchUtils.ensureMinTouchTarget(mYouTubePipButton);
+        }
+
+        if (mIskraCatButton != null) {
+            mIskraCatButton.setClickable(true);
+            mIskraCatButton.setOnClickListener(this);
+            BraveTouchUtils.ensureMinTouchTarget(mIskraCatButton);
         }
 
         mBraveShieldsHandler = new BraveShieldsHandler(getContext());
@@ -1214,7 +1223,45 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
                 }
                 BraveYouTubeScriptInjectorNativeHelper.setFullscreen(currentTab.getWebContents());
             }
+        } else if (mIskraCatButton == v && mIskraCatButton != null) {
+            showCatAnimation();
         }
+    }
+
+    private static final String ISKRA_CAT_SCRIPT =
+            "(function(){"
+                    + "if(document.getElementById('__isk_cat__'))return;"
+                    + "var s=document.createElement('style');"
+                    + "s.id='__isk_cat_s__';"
+                    + "s.textContent='@keyframes isk_swing{"
+                    + "0%{transform:translateY(-50%) translateX(-200px) scaleX(1)}"
+                    + "49%{transform:translateY(-50%) translateX(200px) scaleX(1)}"
+                    + "50%{transform:translateY(-50%) translateX(200px) scaleX(-1)}"
+                    + "99%{transform:translateY(-50%) translateX(-200px) scaleX(-1)}"
+                    + "100%{transform:translateY(-50%) translateX(-200px) scaleX(1)}"
+                    + "}';"
+                    + "document.head.appendChild(s);"
+                    + "var d=document.createElement('div');"
+                    + "d.id='__isk_cat__';"
+                    + "d.textContent='🐱';"
+                    + "d.style.cssText="
+                    + "'position:fixed;top:50%;left:50%;margin-left:-130px;"
+                    + "z-index:2147483647;font-size:260px;pointer-events:none;line-height:1;"
+                    + "animation:isk_swing 2s ease-in-out infinite';"
+                    + "document.body.appendChild(d);"
+                    + "setTimeout(function(){d.remove();s.remove();},5000);"
+                    + "})();";
+
+    private void showCatAnimation() {
+        Tab currentTab = getToolbarDataProvider().getTab();
+        if (currentTab == null) {
+            return;
+        }
+        WebContents webContents = currentTab.getWebContents();
+        if (webContents == null) {
+            return;
+        }
+        webContents.evaluateJavaScript(ISKRA_CAT_SCRIPT, null);
     }
 
     public void showRewardsPage() {
