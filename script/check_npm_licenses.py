@@ -43,7 +43,7 @@ def main():
     return_code = 0
     package_json = os.path.join(os.path.dirname(
         SOURCE_ROOT), 'brave', 'package.json')
-    with open(package_json) as file_handle:
+    with open(package_json, encoding='utf-8') as file_handle:
         dependencies = json.loads(file_handle.read())["dependencies"]
         for module_name in dependencies:
             if not check_dependency(module_name):
