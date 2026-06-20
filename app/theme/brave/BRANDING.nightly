@@ -1,9 +1,9 @@
 COMPANY_FULLNAME=Iskra Software
 COMPANY_SHORTNAME=Iskra
-PRODUCT_FULLNAME=Искра Nightly
-PRODUCT_SHORTNAME=Искра Nightly
-PRODUCT_INSTALLER_FULLNAME=Искра Установщик
-PRODUCT_INSTALLER_SHORTNAME=Искра Установщик
+PRODUCT_FULLNAME=Iskra Nightly
+PRODUCT_SHORTNAME=Iskra Nightly
+PRODUCT_INSTALLER_FULLNAME=Iskra Installer
+PRODUCT_INSTALLER_SHORTNAME=Iskra Installer
 COPYRIGHT=Copyright 2025 Iskra Authors. All rights reserved.
 MAC_BUNDLE_ID=com.iskra.Browser.nightly
 MAC_CREATOR_CODE=Cr24
