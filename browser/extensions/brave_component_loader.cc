@@ -15,6 +15,7 @@
 #include "base/functional/bind.h"
 #include "base/json/json_reader.h"
 #include "brave/components/brave_extension/grit/brave_extension.h"
+#include "brave/components/iskra_customizer/grit/iskra_customizer.h"
 #include "brave/components/constants/brave_switches.h"
 #include "brave/components/constants/pref_names.h"
 #include "brave/components/web_discovery/buildflags/buildflags.h"
@@ -52,6 +53,20 @@ void BraveComponentLoader::AddDefaultComponentExtensions(
     bool skip_session_components) {
   ComponentLoader::AddDefaultComponentExtensions(skip_session_components);
   UpdateBraveExtension();
+  AddIskraCustomizerExtension();
+}
+
+void BraveComponentLoader::AddIskraCustomizerExtension() {
+  base::FilePath path(FILE_PATH_LITERAL("iskra_customizer"));
+  auto& rb = ui::ResourceBundle::GetSharedInstance();
+  std::optional<base::DictValue> manifest = base::JSONReader::ReadDict(
+      rb.LoadDataResourceString(IDR_ISKRA_CUSTOMIZER),
+      base::JSON_PARSE_CHROMIUM_EXTENSIONS);
+  if (!manifest) {
+    return;
+  }
+  const auto id = Add(std::move(*manifest), path);
+  CHECK_EQ(id, iskra_customizer_id);
 }
 
 bool BraveComponentLoader::UseBraveExtensionBackgroundPage() {

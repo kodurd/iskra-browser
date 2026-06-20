@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Iskra Customizer",
+  "version": "1.0.0",
+  "description": "Customize element colors on any website",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5uKreUpuP5TYAWv1vjyWLglGW8r4+NoAz5I69ccFbwnT6n9TinjrB6IjfNiW4SpRVUgQqTMDogn3/g6cHnRXqmefBhJFHz2sQOoItbSZdvs74oA+3zvYBUkWJGIFkHdq+v0BpviL8pNKoG1uRG5vpLtWVwUr04jfiE74h//gLkqQTKdFY6Vlb7/pAwronRuqQfO8GaLKwgXpDIpA19Xjv2YOqc58Zob2U2Qm/1lYHXkzspBI7LpQAVRuKGgKwj20KNWaREagwBrRbK0mdGvZqqPV6osOlAMJy7mf9t+3eSAniF1O1wWTcs5PZLSVQHAeqGYC0ObUmqRal2VO9b2S1wIDAQAB",
+  "icons": {
+    "16": "icons/icon_16.png",
+    "48": "icons/icon_48.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon_16.png",
+      "48": "icons/icon_48.png"
+    },
+    "default_title": "Iskra Customizer"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'"
+}

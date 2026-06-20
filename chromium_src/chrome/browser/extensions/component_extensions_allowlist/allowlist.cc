@@ -10,13 +10,14 @@
 #undef IsComponentExtensionAllowlisted
 
 #include "brave/components/brave_extension/grit/brave_extension.h"
+#include "brave/components/iskra_customizer/grit/iskra_customizer.h"
 #include "components/grit/brave_components_resources.h"
 #include "extensions/common/constants.h"
 
 namespace extensions {
 
   bool IsComponentExtensionAllowlisted(const std::string& extension_id) {
-    const char* const kAllowed[] = {brave_extension_id};
+    const char* const kAllowed[] = {brave_extension_id, iskra_customizer_id};  // NOLINT
 
     for (const auto* id : kAllowed) {
       if (extension_id == id) {
@@ -31,6 +32,7 @@ namespace extensions {
     switch (manifest_resource_id) {
       // Please keep the list in alphabetical order.
       case IDR_BRAVE_EXTENSION:
+      case IDR_ISKRA_CUSTOMIZER:
         return true;
     }
 

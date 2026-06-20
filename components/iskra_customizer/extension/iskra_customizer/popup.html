@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 280px; padding: 16px; font-family: sans-serif; font-size: 14px; margin: 0; }
+  h3 { margin: 0 0 10px; font-size: 15px; color: #222; }
+  .url { font-size: 11px; color: #888; margin-bottom: 12px; word-break: break-all; }
+  .props { display: flex; gap: 6px; margin-bottom: 12px; }
+  .prop-btn {
+    flex: 1; padding: 6px 4px; border: 1px solid #ddd; border-radius: 4px;
+    cursor: pointer; background: #fff; font-size: 12px;
+  }
+  .prop-btn.active { background: #ff6b35; color: #fff; border-color: #ff6b35; }
+  #pick-btn {
+    width: 100%; padding: 10px; background: #ff6b35; color: #fff;
+    border: none; border-radius: 6px; cursor: pointer; font-size: 14px;
+  }
+  #pick-btn.active { background: #c0392b; }
+  .section { margin-top: 16px; }
+  .section h4 { margin: 0 0 8px; font-size: 12px; color: #555; text-transform: uppercase; letter-spacing: .5px; }
+  .rule {
+    display: flex; align-items: center; gap: 6px; padding: 6px 8px;
+    background: #f8f8f8; border-radius: 4px; margin-bottom: 5px;
+  }
+  .swatch { width: 18px; height: 18px; border-radius: 3px; border: 1px solid #ddd; flex-shrink: 0; }
+  .rule-info { flex: 1; font-size: 11px; overflow: hidden; }
+  .rule-sel { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rule-prop { color: #999; }
+  .del { background: none; border: none; cursor: pointer; color: #e74c3c; font-size: 18px; padding: 0; line-height: 1; }
+  #reset-btn {
+    width: 100%; margin-top: 8px; padding: 7px; background: #fff;
+    border: 1px solid #e74c3c; color: #e74c3c; border-radius: 4px; cursor: pointer; font-size: 12px;
+  }
+  .empty { color: #bbb; font-size: 12px; text-align: center; padding: 10px 0; }
+</style>
+</head>
+<body>
+<h3>Искра Кастомайзер</h3>
+<div class="url" id="url">—</div>
+
+<div class="props">
+  <button class="prop-btn active" data-prop="background-color">Фон</button>
+  <button class="prop-btn" data-prop="color">Текст</button>
+  <button class="prop-btn" data-prop="border-color">Рамка</button>
+</div>
+
+<button id="pick-btn">Выбрать элемент</button>
+
+<div class="section">
+  <h4>Правила для сайта</h4>
+  <div id="rules-list"></div>
+  <button id="reset-btn" style="display:none">Сбросить все правила</button>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

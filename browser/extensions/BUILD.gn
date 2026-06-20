@@ -29,6 +29,7 @@ source_set("component_loader") {
   deps = [
     "//base",
     "//brave/components/brave_extension:static_resources",
+    "//brave/components/iskra_customizer:resources",
     "//chrome/browser/extensions",
     "//chrome/browser/profiles:profile",
     "//components/prefs",
@@ -218,6 +219,7 @@ group("resources") {
   deps = [
     "//brave/components/brave_extension:generated_resources",
     "//brave/components/brave_extension:static_resources",
+    "//brave/components/iskra_customizer:resources",
   ]
 }
 
