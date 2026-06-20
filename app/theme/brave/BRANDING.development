@@ -1,9 +1,9 @@
 COMPANY_FULLNAME=Iskra Software
 COMPANY_SHORTNAME=Iskra
-PRODUCT_FULLNAME=Искра Development
-PRODUCT_SHORTNAME=Искра Development
-PRODUCT_INSTALLER_FULLNAME=Искра Установщик
-PRODUCT_INSTALLER_SHORTNAME=Искра Установщик
+PRODUCT_FULLNAME=Iskra Development
+PRODUCT_SHORTNAME=Iskra Development
+PRODUCT_INSTALLER_FULLNAME=Iskra Installer
+PRODUCT_INSTALLER_SHORTNAME=Iskra Installer
 COPYRIGHT=Copyright 2025 Iskra Authors. All rights reserved.
 MAC_BUNDLE_ID=com.iskra.Browser.development
 MAC_CREATOR_CODE=Cr24
