@@ -32,6 +32,12 @@ interface SettingsBraveTorPageElement {
   }
 }
 
+declare global {
+  interface Window {
+    testing: any;
+  }
+}
+
 const SettingBraveTorPageElementBase =
   I18nMixin(RouteObserverMixin(WebUiListenerMixin(PrefsMixin(PolymerElement))))
 
