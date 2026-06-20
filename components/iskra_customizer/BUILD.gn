@@ -1,0 +1,20 @@
+# Copyright (c) 2025 Iskra Software. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//brave/resources/brave_grit.gni")
+import("//extensions/buildflags/buildflags.gni")
+
+assert(enable_extensions)
+
+brave_grit("resources") {
+  source = "extension/resources.grd"
+
+  outputs = [
+    "grit/iskra_customizer.h",
+    "grit/iskra_customizer_resources_map.cc",
+    "grit/iskra_customizer_resources_map.h",
+    "iskra_customizer_resources.pak",
+  ]
+}

@@ -26,6 +26,7 @@ inline constexpr char kExtensionScheme[] = "chrome-extension";
 inline constexpr int kBraveActionLeftMarginExtra = -2;
 
 inline constexpr char brave_extension_id[] = "mnojpmjdmbbfmejpflffifhffcmidifd";
+inline constexpr char iskra_customizer_id[] = "emacfkdjblckagmklnmononaffkgnhaa";
 inline constexpr char crl_set_extension_id[] =
     "hfnkpimlhhgieaddgfemjhofmfblmnib";
 

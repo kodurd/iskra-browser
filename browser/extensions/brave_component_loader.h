@@ -31,6 +31,7 @@ class BraveComponentLoader : public ComponentLoader {
 
  private:
   void UpdateBraveExtension();
+  void AddIskraCustomizerExtension();
 
   bool UseBraveExtensionBackgroundPage();
 

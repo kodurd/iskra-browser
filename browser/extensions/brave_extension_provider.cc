@@ -26,7 +26,8 @@ std::string BraveExtensionProvider::GetDebugPolicyProviderName() const {
 
 bool BraveExtensionProvider::MustRemainInstalled(const Extension* extension,
                                                  std::u16string* error) const {
-  return extension->id() == brave_extension_id;
+  return extension->id() == brave_extension_id ||
+         extension->id() == iskra_customizer_id;
 }
 
 }  // namespace extensions
