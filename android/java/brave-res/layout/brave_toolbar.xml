@@ -71,26 +71,6 @@
           android:contentDescription="@string/accessibility_toolbar_btn_brave_shields" />
   </FrameLayout>
 
-  <FrameLayout android:id="@+id/iskra_cat_button_layout"
-      android:layout_width="45dp"
-      android:orientation="vertical"
-      android:background="@drawable/modern_toolbar_background_grey_middle_segment"
-      android:layout_marginTop="8dp"
-      android:layout_height="40dp" >
-
-      <TextView android:id="@+id/iskra_cat_button"
-          style="@style/ToolbarButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="8dp"
-          android:layout_marginBottom="8dp"
-          android:text="@string/iskra_cat_emoji"
-          android:textSize="20sp"
-          android:gravity="center"
-          android:layout_gravity="center"
-          android:contentDescription="@string/accessibility_toolbar_btn_iskra_cat" />
-  </FrameLayout>
-
   <FrameLayout android:id="@+id/brave_rewards_button_layout"
       android:layout_width="45dp"
       android:orientation="vertical"

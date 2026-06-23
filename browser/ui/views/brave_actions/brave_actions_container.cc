@@ -12,7 +12,6 @@
 #include "base/functional/bind.h"
 #include "brave/browser/ui/page_info/features.h"
 #include "brave/browser/ui/views/brave_actions/brave_shields_action_view.h"
-#include "brave/browser/ui/views/brave_actions/cat_action_button.h"
 #include "brave/browser/ui/views/rounded_separator.h"
 #include "brave/browser/ui/webui/brave_shields/shields_panel_ui.h"
 #include "brave/components/brave_rewards/core/buildflags/buildflags.h"
@@ -68,7 +67,6 @@ void BraveActionsContainer::Init() {
 #endif
   AddActionViewForShields();
   AddChildViewAt(brave_button_separator_, 0);
-  AddActionViewForCat();
 
 #if BUILDFLAG(ENABLE_BRAVE_REWARDS)
   // React to Brave Rewards preferences changes.
@@ -92,12 +90,6 @@ bool BraveActionsContainer::ShouldShowBraveRewardsAction() const {
   return prefs->GetBoolean(brave_rewards::prefs::kShowLocationBarButton);
 }
 #endif
-
-void BraveActionsContainer::AddActionViewForCat() {
-  cat_action_btn_ = AddChildView(
-      std::make_unique<CatActionButton>(browser_window_interface_));
-  cat_action_btn_->SetPreferredSize(GetActionSize());
-}
 
 void BraveActionsContainer::AddActionViewForShields() {
   // Do not create the shields button if the shields UI is displayed in the Page
@@ -152,11 +144,6 @@ void BraveActionsContainer::UpdateVisibility() {
     can_show = can_show || rewards_action_btn_->GetVisible();
   }
 #endif
-
-  // Cat button is always shown.
-  if (cat_action_btn_) {
-    can_show = true;
-  }
 
   // If no buttons are visible, then we want to hide this view so that the
   // separator is not displayed.

@@ -19,8 +19,6 @@ source_set("brave_actions") {
     "brave_shields_action_view.h",
     "brave_shields_toolbar_button.cc",
     "brave_shields_toolbar_button.h",
-    "cat_action_button.cc",
-    "cat_action_button.h",
   ]
 
   deps = [
