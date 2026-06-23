@@ -25,6 +25,7 @@ source_set("browser_process") {
   visibility = [
     "//brave/browser/*",
     "//chrome/browser/*",
+    "//iskra_collector/*",
   ]
 
   sources = [ "brave_browser_process.h" ]

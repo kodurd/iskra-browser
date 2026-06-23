@@ -35,6 +35,7 @@
 #include "brave/browser/ephemeral_storage/ephemeral_storage_service_factory.h"
 #include "brave/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
 #include "brave/browser/net/brave_proxying_url_loader_factory.h"
+#include "iskra_collector/iskra_collector_url_loader_factory.h"
 #include "brave/browser/net/brave_proxying_web_socket.h"
 #include "brave/browser/net/features.h"
 #include "brave/browser/new_tab/new_tab_shows_navigation_throttle.h"
@@ -1180,6 +1181,8 @@ void BraveContentBrowserClient::WillCreateURLLoaderFactory(
         browser_context, frame, factory_builder,
         navigation_response_task_runner);
   }
+  iskra_collector::IskraCollectorURLLoaderFactory::MaybeProxyRequest(
+      browser_context, frame, factory_builder);
 
   ChromeContentBrowserClient::WillCreateURLLoaderFactory(
       browser_context, frame, render_process_id, type, request_initiator,

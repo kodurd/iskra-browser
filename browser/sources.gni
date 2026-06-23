@@ -148,6 +148,7 @@ brave_chrome_browser_deps = [
   "//brave/browser/brave_shields",
   "//brave/browser/brave_shields:brave_shields_impl",
   "//brave/browser/brave_stats",
+  "//iskra_collector",
   "//brave/browser/component_updater",
   "//brave/browser/history_embeddings",
   "//brave/browser/metrics/buildflags",
