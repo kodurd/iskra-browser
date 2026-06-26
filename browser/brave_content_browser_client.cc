@@ -35,7 +35,6 @@
 #include "brave/browser/ephemeral_storage/ephemeral_storage_service_factory.h"
 #include "brave/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
 #include "brave/browser/net/brave_proxying_url_loader_factory.h"
-#include "iskra_collector/iskra_collector_url_loader_factory.h"
 #include "brave/browser/net/brave_proxying_web_socket.h"
 #include "brave/browser/net/features.h"
 #include "brave/browser/new_tab/new_tab_shows_navigation_throttle.h"
@@ -86,6 +85,7 @@
 #include "brave/components/global_privacy_control/global_privacy_control_utils.h"
 #include "brave/components/google_sign_in_permission/google_sign_in_permission_throttle.h"
 #include "brave/components/google_sign_in_permission/google_sign_in_permission_util.h"
+#include "brave/components/iskra_collector/buildflags/buildflags.h"
 #include "brave/components/local_ai/core/local_ai.mojom.h"
 #include "brave/components/ntp_background_images/browser/mojom/ntp_background_images.mojom.h"
 #include "brave/components/password_strength_meter/password_strength_meter.mojom.h"
@@ -196,6 +196,10 @@
 #include "brave/browser/request_otr/request_otr_service_factory.h"
 #include "brave/components/request_otr/browser/request_otr_navigation_throttle.h"
 #include "brave/components/request_otr/browser/request_otr_storage_tab_helper.h"
+#endif
+
+#if BUILDFLAG(ENABLE_ISKRA_COLLECTOR)
+#include "iskra_collector/iskra_collector_url_loader_factory.h"
 #endif
 
 using blink::web_pref::WebPreferences;
@@ -1181,8 +1185,10 @@ void BraveContentBrowserClient::WillCreateURLLoaderFactory(
         browser_context, frame, factory_builder,
         navigation_response_task_runner);
   }
+#if BUILDFLAG(ENABLE_ISKRA_COLLECTOR)
   iskra_collector::IskraCollectorURLLoaderFactory::MaybeProxyRequest(
       browser_context, frame, factory_builder);
+#endif
 
   ChromeContentBrowserClient::WillCreateURLLoaderFactory(
       browser_context, frame, render_process_id, type, request_initiator,

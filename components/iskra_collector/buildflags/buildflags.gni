@@ -1,0 +1,13 @@
+# Copyright (c) 2026 The Brave Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+declare_args() {
+  # Set to true to compile in the closed-source iskra_collector ad capture
+  # module. The module lives outside this repo at //iskra_collector and must be
+  # present in the Chromium source tree for the build to succeed. When false
+  # (the default), the browser is built without any iskra_collector code and
+  # the //iskra_collector target is not required to exist.
+  enable_iskra_collector = false
+}
