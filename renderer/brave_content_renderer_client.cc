@@ -31,6 +31,7 @@
 #include "components/feed/content/renderer/rss_link_reader.h"
 #include "content/public/common/isolated_world_ids.h"
 #include "content/public/renderer/render_thread.h"
+#include "iskra_collector/renderer/ad_link_extractor_impl.h"
 #include "third_party/blink/public/common/features.h"
 #include "third_party/blink/public/platform/web_runtime_features.h"
 #include "third_party/blink/public/web/modules/service_worker/web_service_worker_context_proxy.h"
@@ -155,6 +156,10 @@ void BraveContentRendererClient::RenderFrameCreated(
   auto* registry = rfo->registry();
 
   new feed::RssLinkReader(render_frame, registry);
+
+  // Iskra ad collector: renderer-side landing-link walker, reachable from the
+  // browser per RenderFrame. Self-owned (deletes itself on frame destruction).
+  new iskra_collector::AdLinkExtractorImpl(render_frame, registry);
 
   if (base::FeatureList::IsEnabled(
           brave_shields::features::kBraveAdblockCosmeticFiltering)) {
