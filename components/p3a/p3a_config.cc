@@ -11,20 +11,24 @@
 #include "base/check.h"
 #include "base/command_line.h"
 #include "base/logging.h"
-#include "base/strings/strcat.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/brave_domains/service_domains.h"
 #include "brave/components/p3a/metric_log_type.h"
 #include "brave/components/p3a/switches.h"
-#include "url/url_constants.h"
 
 namespace p3a {
 
 namespace {
 
 constexpr uint64_t kDefaultUploadIntervalSeconds = 60;  // 1 minute.
-constexpr char kConstellationCollectorHostPrefix[] = "collector.bsg";
-constexpr char kRandomnessHostPrefix[] = "star-randsrv.bsg";
+
+// Iskra: P3A telemetry is redirected away from Brave's collectors so Brave
+// never receives it. This is a placeholder host (.invalid is reserved by
+// RFC 2606 and will never resolve) -- replace with your own collector once
+// you have one, e.g. by editing kIskraP3AUploadHost/kIskraP3ARandomnessHost
+// below.
+constexpr char kIskraP3AUploadHost[] = "https://p3a.iskra-stats.invalid";
+constexpr char kIskraP3ARandomnessHost[] =
+    "https://star-randsrv.iskra-stats.invalid";
 
 base::TimeDelta MaybeOverrideTimeDeltaFromCommandLine(
     base::CommandLine* cmdline,
@@ -76,19 +80,13 @@ inline void CheckURL(const GURL& url) {
 #endif  // !OFFICIAL_BUILD
 }
 
-std::string GetDefaultHost(const char* host_prefix) {
-  return base::StrCat({url::kHttpsScheme, url::kStandardSchemeSeparator,
-                       brave_domains::GetServicesDomain(host_prefix)});
-}
-
 }  // namespace
 
 P3AConfig::P3AConfig()
     : average_upload_interval(base::Seconds(kDefaultUploadIntervalSeconds)),
       randomize_upload_interval(true),
-      p3a_constellation_upload_host(
-          GetDefaultHost(kConstellationCollectorHostPrefix)),
-      star_randomness_host(GetDefaultHost(kRandomnessHostPrefix)) {
+      p3a_constellation_upload_host(kIskraP3AUploadHost),
+      star_randomness_host(kIskraP3ARandomnessHost) {
   CheckURL(GURL(star_randomness_host));
   for (MetricLogType log_type : kAllMetricLogTypes) {
     fake_star_epochs[log_type] = std::nullopt;
